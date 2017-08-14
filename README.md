@@ -1,2 +1,2 @@
 # Native-Weather
-Weather Application
+A Weather Application using openweathermap.org API
