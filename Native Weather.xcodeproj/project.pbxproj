@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		6C6C265D1CA1196DE52351AC /* Pods_Native_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF12B69DBE4839AC29638C6E /* Pods_Native_Weather.framework */; };
 		F312E7F01F418BEA00CF36A6 /* SKYIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312E7EF1F418BEA00CF36A6 /* SKYIconView.swift */; };
+		F3583F4A1F41E0500053DD81 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3583F491F41E0500053DD81 /* ForecastViewController.swift */; };
+		F3583F511F41F5400053DD81 /* ForeCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3583F501F41F5400053DD81 /* ForeCastModel.swift */; };
+		F3583F541F41F9300053DD81 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3583F531F41F9300053DD81 /* Utility.swift */; };
+		F3583F571F4237440053DD81 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3583F551F4237440053DD81 /* ForecastCell.swift */; };
+		F3583F581F4237440053DD81 /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3583F561F4237440053DD81 /* ForecastCell.xib */; };
 		F36D96EA1F40BE4E00DB12D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D96E91F40BE4E00DB12D3 /* AppDelegate.swift */; };
 		F36D96EC1F40BE4E00DB12D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D96EB1F40BE4E00DB12D3 /* ViewController.swift */; };
 		F36D96EF1F40BE4E00DB12D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36D96ED1F40BE4E00DB12D3 /* Main.storyboard */; };
@@ -22,6 +27,11 @@
 		79FEBCAB88C347171F3055B4 /* Pods-Native Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Native Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Native Weather/Pods-Native Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		EF12B69DBE4839AC29638C6E /* Pods_Native_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Native_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F312E7EF1F418BEA00CF36A6 /* SKYIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYIconView.swift; sourceTree = "<group>"; };
+		F3583F491F41E0500053DD81 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		F3583F501F41F5400053DD81 /* ForeCastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForeCastModel.swift; sourceTree = "<group>"; };
+		F3583F531F41F9300053DD81 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		F3583F551F4237440053DD81 /* ForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		F3583F561F4237440053DD81 /* ForecastCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
 		F36D96E61F40BE4E00DB12D3 /* Native Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Native Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36D96E91F40BE4E00DB12D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F36D96EB1F40BE4E00DB12D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +69,23 @@
 				EF12B69DBE4839AC29638C6E /* Pods_Native_Weather.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3583F4B1F41F0770053DD81 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3583F551F4237440053DD81 /* ForecastCell.swift */,
+				F3583F561F4237440053DD81 /* ForecastCell.xib */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		F3583F521F41F91A0053DD81 /* Utillity */ = {
+			isa = PBXGroup;
+			children = (
+				F3583F531F41F9300053DD81 /* Utility.swift */,
+			);
+			name = Utillity;
 			sourceTree = "<group>";
 		};
 		F36D96DD1F40BE4E00DB12D3 = {
@@ -103,9 +130,12 @@
 		F36D96FC1F40BEE100DB12D3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F3583F521F41F91A0053DD81 /* Utillity */,
+				F3583F4B1F41F0770053DD81 /* CustomCell */,
 				F36D96E91F40BE4E00DB12D3 /* AppDelegate.swift */,
 				F36D96EB1F40BE4E00DB12D3 /* ViewController.swift */,
 				F312E7EF1F418BEA00CF36A6 /* SKYIconView.swift */,
+				F3583F491F41E0500053DD81 /* ForecastViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -122,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				F36D96FF1F40FEAF00DB12D3 /* DataModel.swift */,
+				F3583F501F41F5400053DD81 /* ForeCastModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -191,6 +222,7 @@
 			files = (
 				F36D96F41F40BE4E00DB12D3 /* LaunchScreen.storyboard in Resources */,
 				F36D96F11F40BE4E00DB12D3 /* Assets.xcassets in Resources */,
+				F3583F581F4237440053DD81 /* ForecastCell.xib in Resources */,
 				F36D96EF1F40BE4E00DB12D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +294,12 @@
 			files = (
 				F36D96EC1F40BE4E00DB12D3 /* ViewController.swift in Sources */,
 				F36D96EA1F40BE4E00DB12D3 /* AppDelegate.swift in Sources */,
+				F3583F4A1F41E0500053DD81 /* ForecastViewController.swift in Sources */,
 				F36D97001F40FEAF00DB12D3 /* DataModel.swift in Sources */,
+				F3583F571F4237440053DD81 /* ForecastCell.swift in Sources */,
+				F3583F541F41F9300053DD81 /* Utility.swift in Sources */,
 				F312E7F01F418BEA00CF36A6 /* SKYIconView.swift in Sources */,
+				F3583F511F41F5400053DD81 /* ForeCastModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

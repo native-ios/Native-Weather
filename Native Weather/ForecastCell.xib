@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="forecastCell" rowHeight="62" id="KGk-i7-Jjw" customClass="ForecastCell" customModule="Native_Weather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKm-uq-CTj">
+                        <rect key="frame" x="8" y="8" width="121" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-k2-Blj">
+                        <rect key="frame" x="8" y="34" width="121" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u75-fg-H9s">
+                        <rect key="frame" x="137" y="8" width="46" height="46"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoy-Zq-62t" userLabel="LabelDesc">
+                        <rect key="frame" x="191" y="38" width="121" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba8-22-ddN" userLabel="LabelPressure">
+                        <rect key="frame" x="191" y="24" width="121" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqX-bP-wRO" userLabel="LabelHumidity">
+                        <rect key="frame" x="191" y="8" width="121" height="16"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="leading" secondItem="tdi-k2-Blj" secondAttribute="trailing" constant="8" symbolic="YES" id="03r-iM-299"/>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="154-PI-W66"/>
+                    <constraint firstItem="tdi-k2-Blj" firstAttribute="top" secondItem="NKm-uq-CTj" secondAttribute="bottom" constant="8" id="1Tg-7l-qKf"/>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="leading" secondItem="NKm-uq-CTj" secondAttribute="trailing" constant="8" symbolic="YES" id="5wn-eE-QS6"/>
+                    <constraint firstItem="Ba8-22-ddN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B2m-ZY-Mvv"/>
+                    <constraint firstItem="xoy-Zq-62t" firstAttribute="leading" secondItem="u75-fg-H9s" secondAttribute="trailing" constant="8" symbolic="YES" id="BSu-Yw-iSk"/>
+                    <constraint firstItem="Ba8-22-ddN" firstAttribute="top" secondItem="vqX-bP-wRO" secondAttribute="bottom" id="IGz-gh-Z6T"/>
+                    <constraint firstItem="tdi-k2-Blj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Jg6-i3-hhj"/>
+                    <constraint firstItem="xoy-Zq-62t" firstAttribute="top" secondItem="Ba8-22-ddN" secondAttribute="bottom" id="Nx9-wY-83N"/>
+                    <constraint firstItem="Ba8-22-ddN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="SPY-cp-oTf"/>
+                    <constraint firstItem="vqX-bP-wRO" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Slf-LZ-dPR"/>
+                    <constraint firstItem="vqX-bP-wRO" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="UPT-Ly-CH9"/>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VAA-lM-tlv"/>
+                    <constraint firstItem="Ba8-22-ddN" firstAttribute="leading" secondItem="u75-fg-H9s" secondAttribute="trailing" constant="8" symbolic="YES" id="WVt-My-ahc"/>
+                    <constraint firstItem="vqX-bP-wRO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Y3K-a2-aSA"/>
+                    <constraint firstItem="vqX-bP-wRO" firstAttribute="leading" secondItem="u75-fg-H9s" secondAttribute="trailing" constant="8" symbolic="YES" id="aBa-xI-2bA"/>
+                    <constraint firstItem="NKm-uq-CTj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="aMj-kk-uPI"/>
+                    <constraint firstItem="xoy-Zq-62t" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bGr-DU-iMI"/>
+                    <constraint firstItem="Ba8-22-ddN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="gsD-By-XXq"/>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="top" secondItem="NKm-uq-CTj" secondAttribute="top" id="iFQ-ot-JUY"/>
+                    <constraint firstItem="u75-fg-H9s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="137" id="pqc-0d-3FP"/>
+                    <constraint firstItem="NKm-uq-CTj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="yPS-vz-a0y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="weatherDate" destination="NKm-uq-CTj" id="IWc-Ff-9iS"/>
+                <outlet property="weatherDesc" destination="xoy-Zq-62t" id="cuS-E2-I3d"/>
+                <outlet property="weatherHumidity" destination="vqX-bP-wRO" id="wqZ-gC-MfZ"/>
+                <outlet property="weatherIcon" destination="u75-fg-H9s" id="kg9-HX-KhG"/>
+                <outlet property="weatherPressure" destination="Ba8-22-ddN" id="Tj9-VU-ref"/>
+                <outlet property="weatherTemp" destination="tdi-k2-Blj" id="re6-nb-FBE"/>
+            </connections>
+            <point key="canvasLocation" x="36" y="64"/>
+        </tableViewCell>
+    </objects>
+</document>
