@@ -14,7 +14,7 @@ class DataModel {
     var today : String = ""
     var temperature: Int = 0
     var pressure : String = ""
-    var humidity : Int = 0
+    var humidity : String = ""
     var temp_min : Int = 0
     var temp_max : Int = 0
     var visibility : String = ""

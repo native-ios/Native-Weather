@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import GooglePlaces
 
 extension Date {
     var millisecondsSince1970:Int {
@@ -97,9 +98,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             weatherDataModel.id = json["id"].intValue
             weatherDataModel.today = Utility.formateDate(timeStamp: json["dt"].intValue, formate: "EEEE, MMM d")
             weatherDataModel.temperature = Int(tempResult - 273.15)
-            weatherDataModel.pressure = "\(json["main"]["pressure"].intValue) MB"
-            weatherDataModel.humidity = json["main"]["humidity"].intValue
-            weatherDataModel.visibility = "\(json["visibility"].intValue / 1000) KM"
+            weatherDataModel.pressure = "\(json["main"]["pressure"].intValue) hPa"
+            weatherDataModel.humidity = "\(json["main"]["humidity"].intValue) %"
+            weatherDataModel.visibility = "\(json["visibility"].intValue / 1000) m"
             weatherDataModel.temp_min = Int(json["main"]["temp_min"].double! - 273.15)
             weatherDataModel.temp_max = Int(json["main"]["temp_max"].double! - 273.15)
             weatherDataModel.windSpeed = json["wind"]["speed"].doubleValue
@@ -114,7 +115,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             textCity.text = "Weather Unavailable"
         }
     }
-
+    
     func updateUIWithWeatherData() {
         textTemperature.text = "\(weatherDataModel.temperature)°"
         textCity.text = "\(weatherDataModel.city)"
@@ -122,8 +123,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         textStatus.text = weatherDataModel.status
         textTempMinMax.text = "\(weatherDataModel.temp_min)° / \(weatherDataModel.temp_max)°"
         
-        textWind.text = "\(weatherDataModel.windSpeed) mph"
-        textVisibility.text = weatherDataModel.visibility
+        textWind.text = "\(weatherDataModel.windSpeed) m/s"
+        textVisibility.text = weatherDataModel.humidity
         textPressure.text = weatherDataModel.pressure
         textSunrise.text = weatherDataModel.sunrise
         textSunset.text = weatherDataModel.sunset
@@ -133,10 +134,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         iconView.setType = Utility.updateWeatherIcon(condition: weatherDataModel.condition)
         iconView.setColor = UIColor.white
         iconView.backgroundColor = UIColor(white: 1, alpha: 0)
-        
+        self.viewIcon.subviews.forEach{$0.removeFromSuperview()}
         self.viewIcon.addSubview(iconView)
         
         delegate?.updateTemperature(temp: "\(weatherDataModel.temperature)°")
     }
+    
+    @IBAction func searchPressed(_ sender: Any) {
+        let placePickerController = GMSAutocompleteViewController()
+        placePickerController.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        placePickerController.autocompleteFilter = filter
+        present(placePickerController, animated: true, completion: nil)
+    }
 }
 
+
+extension ViewController : GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+
+        let pararm : [String : String] = ["q": "\(place.name)", "appid": APP_ID]
+        getWeatherData(url: WEATHER_URL, params: pararm)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}

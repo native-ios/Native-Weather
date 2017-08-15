@@ -9,5 +9,6 @@ target 'Native Weather' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
+    pod 'GooglePlaces'
 
 end

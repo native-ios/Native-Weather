@@ -10,12 +10,17 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import GooglePlaces
 
 
 class ForecastViewController : UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource{
-    @IBOutlet weak var LabelDate: UILabel!
-    @IBOutlet weak var LebelTemp: UILabel!
 
+    @IBOutlet weak var TempMorn: UILabel!
+    @IBOutlet weak var TempDay: UILabel!
+    @IBOutlet weak var TempEve: UILabel!
+    @IBOutlet weak var TempNight: UILabel!
+    @IBOutlet weak var LabelDate: UILabel!
+    @IBOutlet weak var LabelHumidity: UILabel!
     @IBOutlet weak var foreCastTableView: UITableView!
     
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/forecast/daily"
@@ -41,6 +46,8 @@ class ForecastViewController : UIViewController, CLLocationManagerDelegate, UITa
         foreCastTableView.separatorStyle = .none
         configureTableView()
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
@@ -71,14 +78,20 @@ class ForecastViewController : UIViewController, CLLocationManagerDelegate, UITa
     
     func updateWeatherData(json: JSON) {
         if let list = json["list"].array {
+            TempMorn.text = "\(list[0]["temp"]["morn"].floatValue - 273.15)°"
+            TempDay.text = "\(list[0]["temp"]["day"].floatValue - 273.15)°"
+            TempEve.text = "\(list[0]["temp"]["eve"].floatValue - 273.15)°"
+            TempNight.text = "\(list[0]["temp"]["night"].floatValue - 273.15)°"
+            LabelDate.text = Utility.formateDate(timeStamp: list[0]["dt"].intValue, formate: "EEE, MMM d")
+            LabelHumidity.text = "Humidity \(list[0]["humidity"]) %"
             for temp in list {
                 
                 let forecastModel = ForeCastModel()
                 forecastModel.date =  Utility.formateDate(timeStamp: temp["dt"].intValue, formate: "EEE, MMM d")
                 forecastModel.condition = temp["weather"]["id"].intValue
                 forecastModel.tempDiff = "↑\(temp["temp"]["max"].floatValue - 273.15)° ↓\(temp["temp"]["min"].floatValue - 273.15)°"
-                forecastModel.humidity = "\(temp["humidity"].intValue)%"
-                forecastModel.pressure = "\(temp["pressure"].intValue)MB"
+                forecastModel.humidity = "\(temp["humidity"].intValue) %"
+                forecastModel.pressure = "\(temp["pressure"].intValue) hPa"
                 forecastModel.description = temp["weather"][0]["description"].stringValue
                 
                 forcastArray.append(forecastModel)
@@ -130,6 +143,7 @@ class ForecastViewController : UIViewController, CLLocationManagerDelegate, UITa
         foreCastTableView.rowHeight = UITableViewAutomaticDimension
         foreCastTableView.estimatedRowHeight = 120.0
     }
+    
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
